@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>cursor-swarm-build: live demo</title>
+    <meta name="description" content="A swarm of named cursors scans a page and rebuilds it layer by layer. Try it on a real, full-length landing page." />
+    <link rel="stylesheet" href="./demo.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <div class="brand"><i></i>cursor-swarm-build <small>live demo</small></div>
+      <span class="count" id="count" aria-live="polite"></span>
+      <div class="group" role="radiogroup" aria-label="Build speed">
+        <span>Speed</span>
+        <button class="chip" type="button" role="radio" aria-checked="true" data-speed="1">1&times;</button>
+        <button class="chip" type="button" role="radio" aria-checked="false" data-speed="2">2&times;</button>
+        <button class="chip" type="button" role="radio" aria-checked="false" data-speed="4">4&times;</button>
+      </div>
+      <div class="group" role="radiogroup" aria-label="Cursor style">
+        <span>Cursor</span>
+        <button class="chip" type="button" role="radio" aria-checked="true" data-cursor="arrow">Arrow</button>
+        <button class="chip" type="button" role="radio" aria-checked="false" data-cursor="classic">Classic</button>
+        <button class="chip" type="button" role="radio" aria-checked="false" data-cursor="dot">Dot</button>
+        <button class="chip" type="button" role="radio" aria-checked="false" data-cursor="crosshair">Cross</button>
+      </div>
+      <div class="group">
+        <button class="chip" type="button" aria-pressed="true" id="tour">Tour</button>
+        <button class="chip" type="button" aria-pressed="true" id="hud">Control bar</button>
+        <button class="chip" type="button" aria-pressed="false" id="rtl">RTL</button>
+        <button class="chip" type="button" aria-pressed="false" id="dark">Dark</button>
+      </div>
+      <button class="ghost" type="button" id="code">Code</button>
+      <button class="primary" type="button" id="replay">Replay</button>
+    </header>
+
+    <div id="stage">
+      <div class="wrap">
+        <nav class="nav">
+          <a class="logo" href="#"><i></i>Orbit</a>
+          <ul><li>Product</li><li>Solutions</li><li>Pricing</li><li>Docs</li></ul>
+          <a class="btn line push" href="#">Sign in</a>
+          <a class="btn solid" href="#">Start free</a>
+        </nav>
+
+        <section class="hero">
+          <div>
+            <span class="badge">New: natural-language queries</span>
+            <h1>Analytics your whole team can actually read.</h1>
+            <p class="lead">Orbit turns raw data into live dashboards that explain themselves, so decisions stop waiting on a report.</p>
+            <div class="cta"><a class="btn solid" href="#">Start for free</a><a class="btn line" href="#">Book a demo</a></div>
+          </div>
+          <div class="mock">
+            <div class="top"><i></i><i></i><i></i></div>
+            <div class="tiles">
+              <div class="tile"><small>Revenue</small><b>$48.2k</b></div>
+              <div class="tile"><small>Active users</small><b>12,904</b></div>
+              <div class="tile"><small>Conversion</small><b>4.7%</b></div>
+            </div>
+            <div class="chart" role="img" aria-label="Bar chart of weekly growth"><i style="height:48%"></i><i style="height:72%"></i><i style="height:40%"></i><i style="height:88%"></i><i style="height:64%"></i><i style="height:96%"></i><i style="height:56%"></i><i style="height:80%"></i><i style="height:70%"></i><i style="height:100%"></i><i style="height:60%"></i><i style="height:84%"></i></div>
+          </div>
+        </section>
+
+        <div class="logos" aria-label="Trusted by"><span>FENWICK</span><span>LUMIO</span><span>GRIDWELL</span><span>NORTHBEAM</span><span>PARALLAX</span><span>KESTREL</span></div>
+
+        <section class="block">
+          <div class="head">
+            <span class="eyebrow">Why teams switch</span>
+            <h2>Everything you need, nothing you have to maintain.</h2>
+            <p>Six ideas that make the difference between a dashboard people open and one they ignore.</p>
+          </div>
+          <div class="grid3">
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+            <h3>Instant by default</h3>
+            <p>Queries answer while you are still typing them, on a billion rows or ten.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3>Private to the bone</h3>
+            <p>Encrypted at rest and in flight, with audit trails your security team will actually read.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg></div>
+            <h3>Dashboards that explain</h3>
+            <p>Every chart comes with the one sentence that says why it moved.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+            <h3>Built for every region</h3>
+            <p>Data stays where the law says it must, with one control plane for all of it.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5"/></svg></div>
+            <h3>Models you can trust</h3>
+            <p>Version, review and roll back metrics like code, with owners on every one.</p>
+          </article>
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3>Alerts without the noise</h3>
+            <p>Orbit watches the trend, not the blip, and pages only when it matters.</p>
+          </article>
+          </div>
+          <div class="stats">
+            <div><b>99.99%</b><span>Uptime, last 12 months</span></div>
+            <div><b>3.2B</b><span>Rows scanned every day</span></div>
+            <div><b>140+</b><span>Countries served</span></div>
+            <div><b>15 min</b><span>Median time to first insight</span></div>
+          </div>
+        </section>
+
+        <section class="block">
+          <div class="head">
+            <span class="eyebrow">Pricing</span>
+            <h2>Simple plans that grow with you.</h2>
+            <p>Start free, upgrade when it pays for itself, cancel whenever.</p>
+          </div>
+          <div class="grid3">
+          <article class="card price">
+            
+            <h3>Starter</h3>
+            <div class="amount">$0<small> / month</small></div>
+            <p>Free forever for small teams.</p>
+            <ul><li>3 dashboards</li><li>7 days of history</li><li>Community support</li><li>1 workspace</li></ul>
+            <a class="btn line" href="#">Choose Starter</a>
+          </article>
+          <article class="card price pro">
+            <span class="tag">Most popular</span>
+            <h3>Pro</h3>
+            <div class="amount">$29<small> / month</small></div>
+            <p>Everything a growing team needs.</p>
+            <ul><li>Unlimited dashboards</li><li>2 years of history</li><li>Priority support</li><li>10 workspaces</li></ul>
+            <a class="btn solid" href="#">Choose Pro</a>
+          </article>
+          <article class="card price">
+            
+            <h3>Scale</h3>
+            <div class="amount">$99<small> / month</small></div>
+            <p>For companies that live in their data.</p>
+            <ul><li>Single sign-on and audit logs</li><li>Unlimited history</li><li>Dedicated engineer</li><li>Unlimited workspaces</li></ul>
+            <a class="btn line" href="#">Choose Scale</a>
+          </article>
+          </div>
+        </section>
+
+        <section class="block">
+          <div class="head">
+            <span class="eyebrow">Loved by data teams</span>
+            <h2>Hear it from the people who use it.</h2>
+          </div>
+          <div class="grid3">
+          <figure class="card quote">
+            <blockquote>&ldquo;We replaced four tools and a weekly meeting with a single link.&rdquo;</blockquote>
+            <figcaption><span class="av"></span><span><b>Amira Haddad</b><small>Head of Data, Fenwick</small></span></figcaption>
+          </figure>
+          <figure class="card quote">
+            <blockquote>&ldquo;The first dashboard took ten minutes. The second one built itself.&rdquo;</blockquote>
+            <figcaption><span class="av"></span><span><b>Daniel Okoro</b><small>CTO, Lumio Health</small></span></figcaption>
+          </figure>
+          <figure class="card quote">
+            <blockquote>&ldquo;Our finance team finally stopped asking which number is right.&rdquo;</blockquote>
+            <figcaption><span class="av"></span><span><b>Sofia Marchetti</b><small>VP Finance, Gridwell</small></span></figcaption>
+          </figure>
+          </div>
+        </section>
+
+        <section class="block">
+          <div class="head"><span class="eyebrow">Questions</span><h2>Good to know before you start.</h2></div>
+          <div class="faq">
+          <div><h3>How long does setup take?</h3><p>Most teams connect their first source and share a dashboard in under fifteen minutes.</p></div>
+          <div><h3>Can I keep my data in my own cloud?</h3><p>Yes. Orbit can run next to your warehouse so raw data never leaves your account.</p></div>
+          <div><h3>Do you offer a trial of the paid plans?</h3><p>Every paid plan starts with 30 days free, no card required, and you can switch at any time.</p></div>
+          <div><h3>What happens if I outgrow a plan?</h3><p>You are moved up automatically and only pay the difference for the days you used it.</p></div>
+          </div>
+        </section>
+
+        <section class="final">
+          <h2>Ready to see your data clearly?</h2>
+          <p>Join 4,000 teams who stopped guessing. Free for 30 days, no card needed.</p>
+          <form class="form" onsubmit="return false">
+            <label class="sr" for="email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Work email</label>
+            <input id="email" type="email" placeholder="you@company.com" />
+            <button class="btn" type="submit">Get started</button>
+          </form>
+        </section>
+      </div>
+
+      <footer class="site">
+        <div class="wrap">
+          <div class="cols">
+            <div><a class="logo" href="#"><i></i>Orbit</a><p>Analytics that explains itself, built for teams that move fast.</p></div>
+        <div><h4>Product</h4><ul><li>Dashboards</li><li>Alerts</li><li>Models</li><li>Pricing</li></ul></div>
+        <div><h4>Company</h4><ul><li>About</li><li>Careers</li><li>Press</li><li>Contact</li></ul></div>
+        <div><h4>Resources</h4><ul><li>Docs</li><li>Guides</li><li>Changelog</li><li>Status</li></ul></div>
+          </div>
+          <div class="legal">&copy; 2026 Orbit Analytics. A fictional product, built to show off cursor-swarm-build.</div>
+        </div>
+      </footer>
+    </div>
+
+    <dialog id="dialog" aria-labelledby="dialog-title">
+      <header><span id="dialog-title">Use it in your page</span><button class="ghost" type="button" id="close">Close</button></header>
+<pre id="snippet">import { buildIntro } from 'cursor-swarm-build'
+
+const intro = buildIntro(document.querySelector('#app'), {
+  speed: 1,      // 1, 2 or 4
+  tour: true,    // scroll along with the build
+  hud: true,     // show the control bar
+})
+
+await intro.finished // the page is whole again</pre>
+      <footer><button class="primary" type="button" id="copy">Copy</button></footer>
+    </dialog>
+
+    <script type="module" src="./demo.js"></script>
+  </body>
+</html>
